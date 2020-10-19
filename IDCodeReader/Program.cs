@@ -27,7 +27,7 @@ namespace IDCodeReader
                 {
                     try
                     {
-                       long.Parse(idCode);
+                        long.Parse(idCode);
                         return true;
                     }
                     catch (Exception e)
@@ -48,10 +48,36 @@ namespace IDCodeReader
             if (firstNum == 1 || firstNum == 3 || firstNum == 5)
             {
                 Console.WriteLine("Hello sir!");
-            }else if (firstNum == 2 || firstNum ==4 || firstNum == 6)
+            } else if (firstNum == 2 || firstNum == 4 || firstNum == 6)
             {
                 Console.WriteLine("Hello, Madam!");
             }
+      
+        
         }
-    }
+
+        public static void GetYear(string idCode)
+        {
+            string yearFromCode = idCode.Substring(1, 2);
+            string year;
+            if (int.Parse(idCode[0].ToString()) > 4)
+            {
+                year = "20" + yearFromCode;
+            } else
+            {
+                year = "19" + yearFromCode;
+            }
+
+            Console.WriteLine($"you were born in {year}");
+
+        }
+        
+        
+    }   
+
+
+
+        
+
 }
+
